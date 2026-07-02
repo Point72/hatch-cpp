@@ -132,6 +132,7 @@ addopts = [
     "--junitxml=junit.xml",
 ]
 testpaths = "hatch_cpp/tests"
+norecursedirs = "vcpkg"
 
 [tool.ruff]
 line-length = 150
