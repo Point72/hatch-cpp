@@ -71,19 +71,11 @@ endif()
 
 
 find_package(Python ${CSP_PYTHON_VERSION} EXACT REQUIRED COMPONENTS Interpreter Development.Module)
-link_directories(${Python_LIBRARY_DIRS})
-include_directories(${Python_INCLUDE_DIRS})
-
-set(CMAKE_SHARED_LIBRARY_PREFIX "")
-if(NOT WIN32)
-    set(CMAKE_SHARED_LIBRARY_SUFFIX .so)
-else()
-    set(CMAKE_SHARED_LIBRARY_SUFFIX .pyd)
-endif()
 
 include_directories("${CMAKE_SOURCE_DIR}/cpp")
 
-add_library(extension SHARED cpp/project/basic.cpp)
+python_add_library(extension MODULE WITH_SOABI cpp/project/basic.cpp)
+
 set_target_properties(extension PROPERTIES PUBLIC_HEADER cpp/project/basic.hpp)
 install(TARGETS extension
         PUBLIC_HEADER DESTINATION project/include/project
