@@ -70,7 +70,7 @@ else()
 endif()
 
 
-find_package(Python ${CSP_PYTHON_VERSION} EXACT REQUIRED COMPONENTS Interpreter Development.Module)
+find_package(Python ${HATCH_CPP_TEST_PROJECT_BASIC_PYTHON_VERSION} EXACT REQUIRED COMPONENTS Interpreter Development.Module)
 
 include_directories("${CMAKE_SOURCE_DIR}/cpp")
 
